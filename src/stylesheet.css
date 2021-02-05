@@ -161,11 +161,3 @@ main {
   box-shadow: 4px 4px 5px blue;
   cursor: pointer;
 }
-
-
-
-.exe {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}

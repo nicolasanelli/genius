@@ -13,6 +13,7 @@ Is a homemade project using html/css/vanilla js. Without canvas to keep it simpl
 - [ ] Rounds counter
 - [ ] Internationalization
 - [ ] Add songs
+- [ ] Configure ESLint
 
 
 ## Demo
