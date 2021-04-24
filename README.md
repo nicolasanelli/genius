@@ -6,14 +6,15 @@ Is a homemade project using html/css/vanilla js. Without canvas to keep it simpl
 ## To-do list
 
 - [x] Layout
-- [ ] Responsive layout
+- [x] Responsive layout
 - [ ] Github actions deploy
 - [ ] How to play description
-- [ ] Play logic
-- [ ] Rounds counter
+- [x] Play logic
+- [x] Rounds counter
 - [ ] Internationalization
 - [ ] Add songs
 - [ ] Configure ESLint
+- [ ] CSS variable colors
 
 
 ## Demo

@@ -1,48 +1,99 @@
-
+const menu = document.getElementById("menu")
+const game = document.getElementById("game")
+const plays = document.getElementById("plays")
 const green = document.getElementById("green")
 const red = document.getElementById("red")
 const yellow = document.getElementById("yellow")
 const blue = document.getElementById("blue")
 
-green.onmouseover = () => green.classList.add("active");
-green.onmouseleave = () => green.classList.remove("active");
+const colors = [green, red, yellow, blue]
 
-red.onmouseover = () => red.classList.add("active");
-red.onmouseleave = () => red.classList.remove("active");
+colors.forEach(color => {
+  color.onmouseover = () => onMouseOver(color);
+  color.onmousedown = () => onMouseDown(color);
+  color.onmouseup = () => onMouseUp(color);
+  color.onmouseleave = () => onMouseLeave(color);
+})
 
-yellow.onmouseover = () => yellow.classList.add("active");
-yellow.onmouseleave = () => yellow.classList.remove("active");
+let memory;
+let memory_pill;
+let canPlay;
+let totalPlays;
 
-blue.onmouseover = () => blue.classList.add("active");
-blue.onmouseleave = () => blue.classList.remove("active");
+const onMouseOver = (color) => {
+  if (canPlay)
+    color.classList.add("hover")
+}
+const onMouseDown = (color) => {
+  if (canPlay) {
+    color.classList.add("active")
+    const actual_color = memory_pill.shift();
+    if (actual_color !== color) {
+      gameOver();
+    } else {
+      if (memory_pill.length === 0) {
+        setPlays(totalPlays + 1);
+        nextPlay();
+      }
+    }
+  }
+}
+const onMouseUp = (color) => {
+  if (canPlay)
+    color.classList.remove("active")
+}
+const onMouseLeave = (color) => {
+    color.classList.remove("hover")
+    color.classList.remove("active")
+}
 
-const delay = millis => new Promise((resolve) => {
+const sleep = millis => new Promise((resolve) => {
   setTimeout(_ => resolve(), millis)
 });
 
 const blinkColor = async (color) => {
   color.classList.add("active");
-  await delay(1000);
+  await sleep(625);
   color.classList.remove("active");
-  await delay(100);
+  await sleep(100);
 }
 
-const memory = [];
-const memory_pill = []; 
-
-const start = async() => {
-  await delay(1000);
-  memory.push(green);
-  memory.push(red);
-  memory.push(blue);
-  memory.push(yellow);
-  memory.push(green);
-  memory.push(green);
-  
+const blinkAllColors = async () => {
   for (let i=0; i<memory.length; i++) {
     await blinkColor(memory[i])
   }
 }
 
-start();
+const pickRandomColor = () => {
+  return colors[Math.floor(Math.random() * colors.length)]
+}
+
+const setPlays = (value) => {
+  totalPlays = value;
+  plays.innerHTML = value;
+}
+
+const nextPlay = async () => {
+  canPlay = false;
+  await sleep(1000);
+  memory.push(pickRandomColor());
+  memory_pill = [...memory]
+  await blinkAllColors();
+  canPlay = true;
+}
+
+const gameOver = () => {
+  game.classList.add('disabled')
+  alert(`Game Over: You made ${totalPlays} moves!`)
+  menu.classList.remove('disabled')
+}
+
+const newGame = async() => {
+  menu.classList.add('disabled')
+  game.classList.remove('disabled')
+  setPlays(0)
+  memory = [];
+  memory_pill = [];
+  nextPlay();
+}
 

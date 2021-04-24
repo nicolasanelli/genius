@@ -12,16 +12,20 @@
 <body>
   <main>
     <div class="game-screen">
-      <div class="description">
-        <h1>Ainda não é jogável</h1>
-        <p>[Em desenvolvimento]</p>
+      <div id="menu" class="description">
+        <button onclick="newGame()">New Game</button>
       </div>
-      <section class="game">
+      <section id="game" class="game disabled">
         <div class="genius">
-          <div id="green"></div>
-          <div id="red"></div>
-          <div id="yellow"></div>
-          <div id="blue"></div>
+          <div id="green" class="g-button"></div>
+          <div id="red" class="g-button"></div>
+          <div id="yellow" class="g-button"></div>
+          <div id="blue" class="g-button"></div>
+          <div id="center" class="g-button">
+            <div>
+              <h3>Level: <span id="plays">0</span></h3>
+            </div>
+          </div>
         </div>
       </section>
     </div>

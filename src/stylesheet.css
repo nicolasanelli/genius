@@ -16,8 +16,6 @@ main {
 .game-screen {
   height: 80vh;
   width: 80vw;
-  min-height: 400px;
-  min-width: 400px;
   background: linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(139, 139, 139, 0.4));
   filter: blur(30);
   display: flex;
@@ -29,9 +27,6 @@ main {
 .description {
   flex: 1;
   height: 100%;
-  background: linear-gradient(to right top, rgba(0, 0, 0, 0.8), rgba(139, 139, 139, 0.4));
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
   padding: 20px;
   color: white;
   display: flex;
@@ -41,11 +36,17 @@ main {
   flex-direction: column;
 }
 .game {
-  flex: 2;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5em;
 }
+.disabled {
+  pointer-events: none;
+  display: none;
+}
+
 .genius {
   background: rgb(10, 11, 26);
   height: 400px;
@@ -53,111 +54,104 @@ main {
   border-radius: 50%;
   padding: 30px;
   display: flex;
-  justify-content: space-between;
-  align-content: space-between;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .genius {
+    height: 300px;
+    width: 300px;
+    padding: 20px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .genius {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+  }
+}
+
+.g-button {
+  height: 50%;
+  width: 50%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
 
 #green {
   background: linear-gradient(to right top, rgb(3, 128, 3), rgb(122, 247, 122));
-  height: 48%;
-  width: 48%;
   border-top-left-radius: 100%;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
 }
-#green::after {
-  content: "";
-  background: rgb(10, 11, 26);
-  width: 45%;
-  height: 45%;
-  border-top-left-radius: 100%;
-  position: absolute;
-  right: 0%;
-  bottom: 0%;
-  cursor: default;
-}
-
-
 #red {
   background: linear-gradient(to left top, rgb(212, 17, 17), rgb(231, 112, 112));
-  height: 48%;
-  width: 48%;
   border-top-right-radius: 100%;
-  overflow: hidden;
-  position: relative;
 }
-#red::after {
-  content: "";
-  background: rgb(10, 11, 26);
-  width: 45%;
-  height: 45%;
-  border-top-right-radius: 100%;
-  position: absolute;
-  left: 0%;
-  bottom: 0%;
-  cursor: default;
-}
-
 #yellow {
   background: linear-gradient(to left top, rgb(197, 197, 11), rgb(247, 247, 115));
-  height: 48%;
-  width: 48%;
   border-bottom-left-radius: 100%;
-  overflow: hidden;
-  position: relative;
 }
-#yellow::after {
-  content: "";
-  background: rgb(10, 11, 26);
-  width: 45%;
-  height: 45%;
-  border-bottom-left-radius: 100%;
-  position: absolute;
-  top: 0%;
-  right: 0%;
-  cursor: default;
-}
-
 #blue {
   background: linear-gradient(to right top, rgb(5, 5, 172), rgb(99, 99, 238));
-  height: 48%;
-  width: 48%;
   border-bottom-right-radius: 100%;
-  overflow: hidden;
-  position: relative;
 }
-#blue::after {
-  content: "";
+#center {
   background: rgb(10, 11, 26);
-  width: 45%;
-  height: 45%;
-  border-bottom-right-radius: 100%;
+  border-radius: 50%;
   position: absolute;
-  top: 0%;
-  left: 0%;
-  cursor: default;
+  pointer-events: visiblePainted;
+  cursor: no-drop;
+}
+#center div {
+  width: 90%;
+  height: 90%;
+  background-color: #333f40;
+  border-radius: 50%;
+  margin: 5%;
+}
+#center div {
+  text-align: center;
+  padding-top: 40%;
+  color: white;
 }
 
-
+.hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px white;
+}
 #green.active {
   background: linear-gradient(to top left, white, green);
-  box-shadow: -4px -4px 5px green;
-  cursor: pointer;
+  box-shadow: 0px 0px 5px green;
 }
 #red.active {
   background: linear-gradient(to top right, white, red);
-  box-shadow: 4px -4px 5px red;
-  cursor: pointer;
+  box-shadow: 0px 0px 5px red;
 }
 #yellow.active {
   background: linear-gradient(to bottom left, white, yellow);
-  box-shadow: -4px 4px 5px yellow;
-  cursor: pointer;
+  box-shadow: 0px 0px 5px yellow;
 }
 #blue.active {
   background: linear-gradient(to bottom right, white, blue);
-  box-shadow: 4px 4px 5px blue;
+  box-shadow: 0px 0px 5px blue;
+}
+
+button {
+  border-radius: .5em;
+  padding: 10px 25px 10px 25px;
+  background-color: green;
+  color: white;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 48px;
+}
+
+button:hover {
   cursor: pointer;
+  background-color: rgb(102, 143, 102);
 }
