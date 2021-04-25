@@ -2,6 +2,8 @@
 
 Is a homemade project using html/css/vanilla js. Without canvas to keep it simple.
 
+[![Upload AWS S3](https://github.com/NicolasAnelli/genius-html-css/actions/workflows/deploy-prod.yml/badge.svg?event=deployment_status)](https://github.com/NicolasAnelli/genius-html-css/actions/workflows/deploy-prod.yml)
+
 
 ## To-do list
 
