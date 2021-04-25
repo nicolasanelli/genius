@@ -5,7 +5,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
-*::-ms-value {background: none; color: #42413D;}
+html
+{
+  -webkit-tap-highlight-color:transparent;
+}
 
 main {
   height: 100vh;
@@ -119,6 +122,7 @@ main {
   margin: 5%;
 }
 h3 {
+  font-size: 24px;
   color: white;
 }
 

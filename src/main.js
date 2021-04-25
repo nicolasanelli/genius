@@ -11,7 +11,6 @@ const colors = [green, red, yellow, blue]
 colors.forEach(color => {
   color.onmouseover = () => onMouseOver(color);
   color.onmousedown = () => onMouseDown(color);
-  color.onmouseup = () => onMouseUp(color);
   color.onmouseleave = () => onMouseLeave(color);
 })
 
@@ -27,6 +26,7 @@ const onMouseOver = (color) => {
 const onMouseDown = (color) => {
   if (canPlay) {
     color.classList.add("active")
+    setTimeout(() => color.classList.remove("active", "hover"), 100)
     const actual_color = memory_pill.shift();
     if (actual_color !== color) {
       gameOver();
@@ -38,12 +38,9 @@ const onMouseDown = (color) => {
     }
   }
 }
-const onMouseUp = (color) => {
-  if (canPlay)
-    removeAllHover();
-}
 const onMouseLeave = (color) => {
-  removeAllHover();
+  color.classList.remove("hover")
+  color.classList.remove("active")
 }
 const removeAllHover = () => {
   colors.forEach(color => {
@@ -80,6 +77,7 @@ const setPlays = (value) => {
 
 const nextPlay = async () => {
   canPlay = false;
+  await sleep(500);
   removeAllHover();
   await sleep(1000);
   memory.push(pickRandomColor());
