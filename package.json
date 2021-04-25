@@ -16,6 +16,7 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-rm": "^2.0.0",
+    "gulp-terser": "^2.0.1",
     "http-server": "^0.12.3"
   }
 }

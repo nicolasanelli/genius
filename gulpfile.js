@@ -1,32 +1,38 @@
-const gulp = require('gulp');
+const { src, dest, parallel, series } = require('gulp');
 const rm = require('gulp-rm');
 
 const htmlmin = require('gulp-htmlmin');
 const cleanCSS = require('gulp-clean-css');
+const terser = require('gulp-terser');
 
 function cleanDist() {
-    return gulp.src('dist/**/*', { read: false, allowEmpty: true })
+    return src('dist/**/*', { read: false, allowEmpty: true })
         .pipe(rm());
 }
 
 function copy() {
-    return gulp.src(['src/favicon.png', 'src/**/*.js'])
-        .pipe(gulp.dest('dist'));
+    return src(['src/favicon.png'])
+        .pipe(dest('dist'));
 }
 
 function minifiHtml() {
-    return gulp.src('src/**/*.html')
+    return src('src/**/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest('dist'));
+        .pipe(dest('dist'));
 }
 function minifyCss() {
-    return gulp.src('src/**/*.css')
+    return src('src/**/*.css')
         .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(gulp.dest('dist'));
+        .pipe(dest('dist'));
+}
+function minifyJs() {
+    return src('src/**/*.js')
+        .pipe(terser())
+        .pipe(dest('dist'));
 }
 
 
-exports.build = gulp.series(
+exports.build = series(
     cleanDist, 
     copy, 
-    gulp.parallel(minifiHtml, minifyCss))
+    parallel(minifiHtml, minifyCss, minifyJs))
