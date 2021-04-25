@@ -7,7 +7,7 @@ Is a homemade project using html/css/vanilla js. Without canvas to keep it simpl
 
 - [x] Layout
 - [x] Responsive layout
-- [ ] Github actions deploy
+- [x] Github actions deploy
 - [ ] How to play description
 - [x] Play logic
 - [x] Rounds counter

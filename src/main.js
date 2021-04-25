@@ -40,11 +40,16 @@ const onMouseDown = (color) => {
 }
 const onMouseUp = (color) => {
   if (canPlay)
-    color.classList.remove("active")
+    removeAllHover();
 }
 const onMouseLeave = (color) => {
+  removeAllHover();
+}
+const removeAllHover = () => {
+  colors.forEach(color => {
     color.classList.remove("hover")
     color.classList.remove("active")
+  });
 }
 
 const sleep = millis => new Promise((resolve) => {
@@ -75,6 +80,7 @@ const setPlays = (value) => {
 
 const nextPlay = async () => {
   canPlay = false;
+  removeAllHover();
   await sleep(1000);
   memory.push(pickRandomColor());
   memory_pill = [...memory]
