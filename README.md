@@ -2,7 +2,7 @@
 
 Is a homemade project using html/css/vanilla js. Without canvas to keep it simple.
 
-[![Upload AWS S3](https://github.com/NicolasAnelli/genius-html-css/actions/workflows/deploy-prod.yml/badge.svg?event=deployment_status)](https://github.com/NicolasAnelli/genius-html-css/actions/workflows/deploy-prod.yml)
+[![Upload AWS S3](https://github.com/NicolasAnelli/genius-html-css/actions/workflows/deploy-prod.yml/badge.svg?branch=main)](https://github.com/NicolasAnelli/genius-html-css/actions/workflows/deploy-prod.yml)
 
 
 ## To-do list
@@ -13,9 +13,8 @@ Is a homemade project using html/css/vanilla js. Without canvas to keep it simpl
 - [ ] How to play description
 - [x] Play logic
 - [x] Rounds counter
-- [ ] Internationalization
+- [ ] Internationalization (I18n)
 - [ ] Add songs
-- [ ] Configure ESLint
 - [ ] CSS variable colors
 
 
