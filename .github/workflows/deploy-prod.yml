@@ -11,10 +11,11 @@ jobs:
     steps:
       - name: checkout main
         uses: actions/checkout@main
-      - name: npm run build
+      - name: Use Node v14
         uses: actions/setup-node@v1
         with:
           node-version: 14.16.1
+      - name: npm run build    
         run: npm install 
       - name: update aws s3  
         uses: jakejarvis/s3-sync-action@master
