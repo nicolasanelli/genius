@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 14.16.1
       - name: npm run build    
-        run: npm install 
+        run: npm install && npm run build 
       - name: update aws s3  
         uses: jakejarvis/s3-sync-action@master
         with:
