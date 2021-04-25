@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "dev": "http-server -p 8080 ./src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-rm": "^2.0.0",
     "http-server": "^0.12.3"
   }
 }
