@@ -88,7 +88,7 @@ const nextPlay = async () => {
 
 const gameOver = () => {
   game.classList.add('disabled')
-  alert(`Game Over: You made ${totalPlays} moves!`)
+  alert(`Fim de jogo: Você completou ${totalPlays} leveis!`)
   menu.classList.remove('disabled')
 }
 
