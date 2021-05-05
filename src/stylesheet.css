@@ -10,6 +10,22 @@ html
   -webkit-tap-highlight-color:transparent;
 }
 
+:root {
+  --green: rgb(3, 128, 3);
+  --green-to: rgb(122, 247, 122);
+  --green-active: green;
+  --red: rgb(212, 17, 17);
+  --red-to: rgb(231, 112, 112);
+  --red-active: red;
+  --yellow: rgb(197, 197, 11);
+  --yellow-to: rgb(247, 247, 115);
+  --yellow-active: yellow;
+  --blue: rgb(5, 5, 172);
+  --blue-to: rgb(99, 99, 238);
+  --blue-active: blue;
+  --genius-color: rgb(10, 11, 26);
+}
+
 main {
   height: 100vh;
   background: linear-gradient(to right top, #091f1b, #3a5a5f);
@@ -52,7 +68,7 @@ main {
 }
 
 .genius {
-  background: rgb(10, 11, 26);
+  background: var(--genius-color);
   height: 400px;
   width: 400px;
   border-radius: 50%;
@@ -92,19 +108,19 @@ main {
 }
 
 #green {
-  background: linear-gradient(to right top, rgb(3, 128, 3), rgb(122, 247, 122));
+  background: linear-gradient(to right top, var(--green), var(--green-to));
   border-top-left-radius: 100%;
 }
 #red {
-  background: linear-gradient(to left top, rgb(212, 17, 17), rgb(231, 112, 112));
+  background: linear-gradient(to left top, var(--red), var(--red-to));
   border-top-right-radius: 100%;
 }
 #yellow {
-  background: linear-gradient(to left top, rgb(197, 197, 11), rgb(247, 247, 115));
+  background: linear-gradient(to left top, var(--yellow), var(--yellow-to));
   border-bottom-left-radius: 100%;
 }
 #blue {
-  background: linear-gradient(to right top, rgb(5, 5, 172), rgb(99, 99, 238));
+  background: linear-gradient(to right top, var(--blue), var(--blue-to));
   border-bottom-right-radius: 100%;
 }
 #center {
@@ -117,7 +133,8 @@ main {
 #center div {
   width: 90%;
   height: 90%;
-  background-color: #333f40;
+  /* background-color: #333f40; */
+  background-color: var(--genius-color);
   border-radius: 50%;
   margin: 5%;
 }
@@ -131,26 +148,26 @@ h3 {
   box-shadow: 0px 0px 15px white;
 }
 #green.active {
-  background: linear-gradient(to top left, white, green);
-  box-shadow: 0px 0px 5px green;
+  background: linear-gradient(to top left, white, var(--green-active));
+  box-shadow: 0px 0px 5px var(--green-active);
 }
 #red.active {
-  background: linear-gradient(to top right, white, red);
-  box-shadow: 0px 0px 5px red;
+  background: linear-gradient(to top right, white, var(--red-active));
+  box-shadow: 0px 0px 5px var(--red-active);
 }
 #yellow.active {
-  background: linear-gradient(to bottom left, white, yellow);
-  box-shadow: 0px 0px 5px yellow;
+  background: linear-gradient(to bottom left, white, var(--yellow-active));
+  box-shadow: 0px 0px 5px var(--yellow-active);
 }
 #blue.active {
-  background: linear-gradient(to bottom right, white, blue);
-  box-shadow: 0px 0px 5px blue;
+  background: linear-gradient(to bottom right, white, var(--blue-active));
+  box-shadow: 0px 0px 5px var(--blue-active);
 }
 
 button {
   border-radius: .5em;
   padding: 10px 25px 10px 25px;
-  background-color: green;
+  background-color: var(--green);
   color: white;
   border: 1px solid transparent;
   text-transform: uppercase;
@@ -160,5 +177,5 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(102, 143, 102);
+  background-color: var(--green-to);
 }
